@@ -1,0 +1,33 @@
+<div class="col-md-offset-4">
+  <div class="row">
+    <div class="form-group col-lg-4">
+      <label class="control-label  required-field" for="carModel">Select Car</label>
+      <select name="carType" class="form-control"
+              id='carModel' (change)="carTypeChange($event.target.value)" >
+        <option value="">Select</option>
+        <option *ngFor="let mt of cars" [ngValue]="mt.name"
+                name="select">{{mt.name}}
+        </option>
+      </select>
+    </div>
+    <div class="form-group col-lg-4">
+      <label class="control-label  required-field" for="modelSelected"> Select Model</label>
+      <select name="modelSelected" class="form-control" id='modelSelected' (change)="modelChange($event.target.value)" >
+        <option value="">Select</option>
+        <option *ngFor="let mt of modelTypes" [ngValue]="mt.name"
+                name="select">{{mt.name}}
+        </option>mongo
+      </select>
+    </div>
+  </div>
+  <div class="row" *ngIf="imageShow">
+    <div class="col-lg-4">
+      <h3>Selected Vechicle:{{selectedVehicle}}</h3>
+      <h3>Selected Model:{{selectedVehicleModel}}</h3>
+    </div>
+    <div class="col-lg-4">
+      <img src="../../assets/{{selectedVehicleModel}}.jpg">
+    </div>
+  </div>
+
+</div>
